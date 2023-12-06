@@ -1,0 +1,88 @@
+﻿@page
+@model formValidation.Pages.contactModel
+@{
+}
+<div class="row">
+    <div class="col-lg-9 mx-auto rounded border p-3">  
+        <h3 class="text-center mb-5">Contact</h3>
+
+        @if (Model.errorMessage.Length >0)
+        {
+            <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                <strong>@Model.errorMessage</strong>
+                  <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                      </div>
+
+        }
+        else if (Model.successMessage.Length >0)
+        {
+        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+            <strong>@Model.successMessage</strong>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+        }
+        <form method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">First Name</label>
+                <div class=" col-sm-8">
+                    <input class="form-control" asp-for="FirstName">
+                    <span asp-validation-for="FirstName" class="test-danger"> </span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Last Name</label>
+                <div class=" col-sm-8">
+                    <input class="form-control" asp-for="LastName">
+                    <span asp-validation-for="LastName" class="test-danger"> </span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class=" col-sm-8">
+                    <input class="form-control" asp-for="Email">
+                    <span asp-validation-for="Email" class="test-danger"> </span>
+
+                </div>
+            </div>
+            <!-- ... (other form elements) ... -->
+
+            <div class="row mb-3">
+                <lable class="col-sm-4 col-form-label">Phone</lable>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="PhoneNumber">
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- ... (other form elements) ... -->
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Subject</label>
+                <div class=" col-sm-8">
+                    <select class="form-select" asp-for="Subject">
+                        <option selected>Open this select menu</option>
+                        <option value="1">Advance Java</option>
+                        <option value="2">Software Engineer</option>
+                        <option value="3">DSA</option>
+                    </select>
+                    <span asp-validation-for="Subject" class="test-danger"> </span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Message</label>
+                <div class=" col-sm-8">
+
+                    <textarea class="form-control" asp-for="Message"></textarea>
+                    <span asp-validation-for="Message" class="test-danger"> </span>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class=" offset-sm-4" col-sm-8>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
